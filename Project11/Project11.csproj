@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+    <TargetFrameworks>xamarinios10;MonoAndroid60;MonoAndroid70;uap10.0;net46</TargetFrameworks>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <NoWarn>$(NoWarn);1998</NoWarn>
+		<PackageOutputPath>..\PackageOutput</PackageOutputPath>
+  </PropertyGroup>
+
+  <Import Project="..\cross.targets" />
+	
+  <ItemGroup>
+    <PackageReference Include="System.ValueTuple" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project01\Project01.csproj" />
+    <ProjectReference Include="..\Project02\Project02.csproj" />
+    <ProjectReference Include="..\Project03\Project03.csproj" />
+    <ProjectReference Include="..\Project04\Project04.csproj" />
+    <ProjectReference Include="..\Project05\Project05.csproj" />
+    <ProjectReference Include="..\Project06\Project06.csproj" />
+    <ProjectReference Include="..\Project07\Project07.csproj" />
+    <ProjectReference Include="..\Project08\Project08.csproj" />
+    <ProjectReference Include="..\Project09\Project09.csproj" />
+    <ProjectReference Include="..\Project10\Project10.csproj" />
+  </ItemGroup>
+
+</Project>

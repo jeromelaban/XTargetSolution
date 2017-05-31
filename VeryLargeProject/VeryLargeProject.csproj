@@ -1,0 +1,97 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+    <TargetFrameworks>xamarinios10;MonoAndroid60;MonoAndroid70;uap10.0;net46</TargetFrameworks>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <NoWarn>$(NoWarn);1998</NoWarn>
+		<PackageOutputPath>..\PackageOutput</PackageOutputPath>
+  </PropertyGroup>
+
+  <Import Project="..\cross.targets" />
+	
+  <ItemGroup>
+    <PackageReference Include="System.ValueTuple" Version="4.3.0" />
+    <PackageReference Include="System.Reactive" Version="3.1.1" />
+    <PackageReference Include="System.Xml.XDocument" Version="4.3.0" />
+		<PackageReference Include="CommonServiceLocator" Version="1.3.0" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)'=='net46'">
+    <PackageReference Include="Unity" Version="3.0.1304.1" />
+    <PackageReference Include="EntityFramework">
+      <Version>6.0.1</Version>
+    </PackageReference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Device" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='uap10.0'">
+    <SDKReference Include="WindowsMobile, Version=10.0.14393.0">
+      <Name>Microsoft Mobile Extension SDK for Universal App Platform</Name>
+    </SDKReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Project01\Project01.csproj" />
+    <ProjectReference Include="..\Project02\Project02.csproj" />
+    <ProjectReference Include="..\Project03\Project03.csproj" />
+    <ProjectReference Include="..\Project04\Project04.csproj" />
+    <ProjectReference Include="..\Project05\Project05.csproj" />
+    <ProjectReference Include="..\Project06\Project06.csproj" />
+    <ProjectReference Include="..\Project07\Project07.csproj" />
+    <ProjectReference Include="..\Project08\Project08.csproj" />
+    <ProjectReference Include="..\Project09\Project09.csproj" />
+    <ProjectReference Include="..\Project11\Project11.csproj" />
+    <ProjectReference Include="..\Project12\Project12.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <_IsAndroid>false</_IsAndroid>
+    <_IsAndroid Condition="'$(TargetFrameworkIdentifier)'=='MonoAndroid'">true</_IsAndroid>
+
+    <_IsIOS>false</_IsIOS>
+    <_IsIOS Condition="'$(TargetFrameworkIdentifier)'=='Xamarin.iOS'">true</_IsIOS>
+
+    <_IsNet>false</_IsNet>
+    <_IsNet Condition="'$(TargetFramework)'=='net46'">true</_IsNet>
+
+    <_IsUWP>false</_IsUWP>
+    <_IsUWP Condition="'$(TargetFramework)'=='uap10.0'">true</_IsUWP>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 
+		This block is present to allow visual studio to display
+		the files even if they are conditionally excluded 
+		-->
+    <None Include="**\*.iOS.cs" />
+    <None Include="**\*.Android.cs" />
+    <None Include="**\*.UWP.cs" />
+    <None Include="**\*.Net.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Remove="**\*.iOS.cs" />
+    <Compile Include="**\*.iOS.cs" Condition="$(_IsIOS)" />
+
+    <Compile Remove="**\*.Android.cs" />
+    <Compile Include="**\*.Android.cs" Condition="$(_IsAndroid)" />
+
+    <Compile Remove="**\*.UWP.cs" />
+    <Compile Include="**\*.UWP.cs" Condition="$(_IsUWP)" />
+
+    <Compile Remove="**\*.net.cs" />
+    <Compile Include="**\*.net.cs" Condition="$(_IsNet)" />
+  </ItemGroup>
+
+</Project>
