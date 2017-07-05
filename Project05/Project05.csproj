@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
-    <TargetFrameworks>xamarinios10;MonoAndroid60;MonoAndroid70;uap10.0;net46</TargetFrameworks>
+    <TargetFrameworks>Xamarin.iOS10;MonoAndroid60;MonoAndroid70;uap10.0;net46</TargetFrameworks>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <NoWarn>$(NoWarn);1998</NoWarn>
 		<PackageOutputPath>..\PackageOutput</PackageOutputPath>

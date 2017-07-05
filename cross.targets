@@ -1,5 +1,11 @@
 <Project ToolsVersion="15.0">
   <PropertyGroup>
+    <!--
+    Uncomment this line to override the projects' target frameworks.
+    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    -->
+    
+    
     <DefaultLanguage>en-US</DefaultLanguage>
     <Version>255.255.255.255</Version>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
@@ -20,7 +26,7 @@
     <DefineConstants>$(DefineConstants);NETFX_CORE</DefineConstants>
     <LanguageTargets>$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets</LanguageTargets>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)' == 'xamarinios10'">
+  <PropertyGroup Condition="'$(TargetFramework)' == 'Xamarin.iOS10'">
     <!-- 
      NoCompilerStandardLib and NoStdLib is required to 
      avoid common .NET targets to add .NET 4.5 mscorlib, and use 
@@ -65,7 +71,7 @@
   <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
     <Reference Include="WindowsBase" />
   </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'xamarinios10' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'Xamarin.iOS10' ">
     <Reference Include="System" />
     <Reference Include="mscorlib" />
     <Reference Include="System.Runtime" />
@@ -78,7 +84,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="Xamarin.iOS" />
-    <Compile Include="Platforms\xamarinios10\**\*.cs" />
+    <Compile Include="Platforms\Xamarin.iOS10\**\*.cs" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'MonoAndroid50' or '$(TargetFramework)' == 'MonoAndroid60' or '$(TargetFramework)' == 'MonoAndroid70' ">
     <Reference Include="Mono.Android" />
