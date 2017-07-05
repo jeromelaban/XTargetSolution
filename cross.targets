@@ -2,9 +2,8 @@
   <PropertyGroup>
     <!--
     Uncomment this line to override the projects' target frameworks.
-    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <TargetFrameworks>MonoAndroid60</TargetFrameworks>
     -->
-    
     
     <DefaultLanguage>en-US</DefaultLanguage>
     <Version>255.255.255.255</Version>
